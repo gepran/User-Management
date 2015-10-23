@@ -1,0 +1,107 @@
+<section class="md-whiteframe-6dp" style="margin: 16px;">
+	<md-subheader>
+		<span class="md-display-1">Users List</span>
+		<md-button class=" btn-xs green-btn md-raised md-primary new-user-btn" ng-click="showNewUserPopup($event)">New User</md-button>
+	</md-subheader>
+
+	<md-divider></md-divider>
+
+	<!-- Users List Header -->
+	<div layout="row" layout-wrap class="users-list-style"> 
+	 	<div flex="25" class="user-cols">
+	 		<span class="md-title">User Name</span>
+	 	</div>
+		<div flex="20" class="user-cols">
+			<span class="md-title">Email</span>
+		</div>
+		
+		<div flex="15" class="user-cols">
+			<span class="md-title">Mobile</span>
+		</div>
+
+		<div flex="15" class="user-cols">
+			<span class="md-title">Birth Date</span>
+		</div>
+
+		<div flex="10" class="user-cols">
+			<span class="md-title">Age</span>
+		</div>
+
+		<div flex="15" class="user-cols">
+			<span class="md-title">Action</span>
+		</div>
+		<md-divider></md-divider>
+	</div>
+
+	<md-divider></md-divider>
+
+	<div layout="row" layout-wrap class="users-list-style" ng-repeat="user in usersList" id="user-list" ng-include="getTemplate(user)"> 
+
+	</div>
+
+<!-- Display Template -->
+	<script type="text/ng-template" id="display">
+		
+        <div flex="25" class="user-cols">
+	 		<a href="javascript:;" ng-click="showUserDetailsPopup(user._id)">
+	 			<span class="md-title">{{user.firstName}}</span>
+	 			<span class="md-title">{{user.lastName}}</span>
+	 		</a>
+	 	</div>
+		<div flex="20" class="user-cols">
+			<span class="md-subhead">{{user.userEmail}}</span>
+		</div>
+		
+		<div flex="15" class="user-cols">
+			<span class="md-subhead">{{user.mobile}}</span>
+		</div>
+
+		<div flex="15" class="user-cols">
+			<span class="md-subhead">{{user.birthDate  | date:"MMM d, y"}}</span>
+		</div>
+
+		<div flex="10" class="user-cols">
+			<span class="md-subhead">{{user.userAge}}</span>
+		</div>
+
+		<div flex="15" class="user-cols-action">
+			<md-button class="btn-xs green-btn md-raised md-primary" ng-click="editContact(user)">Edit</md-button>
+			<md-button class="btn-xs md-warn md-raised md-hue-2" data-id="{{user._id}}" ng-click="showConfirm(user._id)">Del</md-button>
+		</div>
+		<md-divider></md-divider>
+    </script>
+
+<!-- edit Temlate -->
+
+    <script type="text/ng-template" id="edit" class="userlist-edit-row">
+	    <div layout="row" layout-wrap class="users-list-style" id="selectedelem"> 
+	    	<div flex="25" class="user-cols">
+	    		<div layout layout-sm="column">
+		            <input ng-model="selected.firstName" flex />
+		            <input ng-model="selected.lastName" flex />
+	            </div>
+		 	</div>
+			<div flex="20" class="user-cols">
+	        	<input ng-model="selected.userEmail" type="email" style="width: 180px;" />
+			</div>
+			
+			<div flex="15" class="user-cols">
+	            <input name="postalCode" ng-model="selected.mobile" required ng-pattern="/^[0-9]/" flex style="width: 130px;" />
+			</div>
+
+			<div flex="15" class="user-cols">
+				<input name="postalCode" ng-model="selected.birthDate" required ng-pattern="/^[0-9]/" flex style="width: 120px;" />
+			</div>
+
+			<div flex="10" class="user-cols">
+	            <input name="postalCode" ng-model="selected.userAge" required ng-pattern="/^[0-9]/" flex style="width: 50px;"/>
+			</div>
+
+			<div flex="15" class="user-cols-action">
+				<md-button class="btn-xs green-btn md-raised md-primary" ng-click="saveContact($index)" style="padding: 2px 7px;margin: 9px 0 0 8px;">Save</md-button>
+				<md-button class="btn-xs md-warn md-raised md-hue-2" ng-click="reset()" style="padding: 2px 7px;margin: 9px 0 0 8px;">Cancel</md-button>
+			</div>
+			<md-divider></md-divider>
+		</div>
+    </script>
+</section>

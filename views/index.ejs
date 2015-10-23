@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="usersApp">
+<head>
+	<meta charset="UTF-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>User Interface</title>
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">	
+
+	<link rel="stylesheet" type="text/css" href="../bower_components/angular-material/angular-material.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+
+	<script type="text/javascript" src="../bower_components/angular/angular.js"></script>
+	<script type="text/javascript" src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>  
+	<script type="text/javascript" src="../bower_components/angular-animate/angular-animate.js"></script>
+	<script type="text/javascript" src="../bower_components/angular-aria/angular-aria.js"></script>
+	<script type="text/javascript" src="../bower_components/angular-material/angular-material.js"></script>
+
+	<script type="text/javascript" src="../app/app.js"></script>
+	<script type="text/javascript" src="../app/routes.js"></script>
+
+	<!-- Angular Controllers -->
+	<script type="text/javascript" src="../app/controllers/userListController.js"></script>
+	<script type="text/javascript" src="../app/controllers/userDetailsController.js"></script>
+
+</head>
+	<body layout="row" ng-cloak>
+
+		<!-- Sidebar Start -->
+		<md-sidenav md-component-id="left" class="md-sidenav-left md-whiteframe-6dp sidebar" md-is-locked-open="$mdMedia('min-width: 1000px')">
+
+	  		<header class="nav-header">
+	  			<div layout-wrap layout-padding layout-margin>
+	  				<h1>User Interface</h1>	
+	  			</div>
+		       
+		    </header>
+		    
+		    <md-divider style="background-color: #72DD77;"></md-divider>
+
+		    <md-list style="padding: 0;">
+		    	<a ui-sref="/home">
+			    	<md-list-item class="md-1-line">
+				    	<md-checkbox style="display:none;"></md-checkbox>
+				    	<div class="md-list-item-text">
+				      		<h3>Home</h3>
+				    	</div>
+				  	</md-list-item>
+			  	</a>
+			  	<md-divider style="background-color: #72DD77;"></md-divider>
+
+		    	<a ui-sref="usersList">
+				  	<md-list-item class="md-1-line md-primary">
+				    	<md-checkbox style="display:none;"></md-checkbox>
+				      	<div class="md-list-item-text">
+				      		<h3>Users</h3>
+				    	</div>
+				  	</md-list-item>
+			  	</a>
+
+			  	<md-divider style="background-color: #72DD77;"></md-divider>
+
+			</md-list>
+
+		</md-sidenav>
+		<!-- Sidebar End -->
+
+		<div layout="column" tabindex="-1" role="main" flex>
+
+		<!-- Top Toolbar Start -->
+			<md-toolbar class="md-whiteframe-z2 main-toolbar">
+			    <div class="md-toolbar-tools">
+			      	<h2 class="md-flex">Toolbar</h2>
+			    </div>
+		  	</md-toolbar>
+		<!-- Top Toolbar End -->
+
+		<!-- Main Content Start -->
+		  	<md-content ui-view md-scroll-y flex layout-padding class="ng-scope md-default-theme main-section">
+		  		Main Content
+		  	</md-content>
+		<!-- Main Content End -->
+
+		</div>
+
+	</body>
+</html>

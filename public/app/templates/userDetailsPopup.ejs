@@ -1,0 +1,79 @@
+<md-dialog aria-label="Mango (Fruit)"  ng-cloak id="user-details-popup">
+    <form>
+        <md-toolbar style="background-color: #388E3C;">
+            <div class="md-toolbar-tools">
+                <h2>User Details</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    x
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content style="max-width:800px;max-height:810px; ">
+            <div class="md-dialog-content" style="width: 400px;">
+                
+                <div layout="row">
+                    <div flex>
+                        <md-list-item class="md-2-line" flex>
+                            <div class="md-list-item-text">
+                                <h3>{{usersDetails.firstName}}{{usersDetails.lastName}}</h3>
+                                <p>Full Name</p>
+                            </div>
+                        </md-list-item>
+                    </div>
+
+                    <div flex>
+                        <md-list-item class="md-2-line" flex>
+                            <div class="md-list-item-text">
+                                <h3 class="md-headline">{{usersDetails.birthDate  | date:"MMM d, y"}}</h3>
+                                <p>date of birth</p>
+                            </div>
+                        </md-list-item>
+                    </div>
+                </div>
+                <md-divider style="background-color: #B6B6B6;"></md-divider>
+                <div layout="row">
+
+                    <div flex>
+                        <md-list-item class="md-2-line" flex>
+                            <div class="md-list-item-text">
+                                <h3 class="md-headline">{{usersDetails.mobile}}</h3>
+                                <p>phone</p>
+                            </div>
+                        </md-list-item>
+                    </div>
+
+                    <div flex>
+                        <md-list-item class="md-2-line" flex>
+                            <div class="md-list-item-text">
+                                <h3 class="md-headline">{{usersDetails.userEmail}}</h3>
+                                <p>emails</p>
+                            </div>
+                        </md-list-item>
+                    </div>
+                </div>
+                <md-divider style="background-color: #B6B6B6;"></md-divider>
+                <div layout="row">
+
+                    <div flex>
+                        <md-list-item class="md-2-line" flex>
+                            <div class="md-list-item-text">
+                                <h3 class="md-headline">{{usersDetails.userAge}}</h3>
+                                <p>age</p>
+                            </div>
+                        </md-list-item>
+                    </div>
+
+                </div>
+
+            </div>
+        <md-divider></md-divider>
+        </md-dialog-content>
+        
+        <div class="md-actions" layout="row">
+            <span flex></span>
+            <md-button ng-click="cancel()" class="green-btn md-raised md-primary" style="margin-right:20px;">Close</md-button>
+        </div>
+    </form>
+</md-dialog>

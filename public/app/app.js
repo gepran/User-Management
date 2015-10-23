@@ -1,0 +1,1 @@
+angular.module('usersApp', ['ui.router', 'ngMaterial', 'ngAnimate']);
